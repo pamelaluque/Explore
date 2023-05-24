@@ -1,0 +1,11 @@
+.Footer h4{
+    background-color: rgb(214, 79, 79);
+    background-size: 100vw;
+    width: 100vw;
+    min-height: 5vh;
+    padding: 8px;
+    margin: 0;
+    font-size: 14px;
+    text-align: center;
+    font-weight: lighter;
+}
