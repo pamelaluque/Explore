@@ -2,6 +2,8 @@ import './NavBar.css';
 import Button from '@mui/material/Button';
 import { CartWidget } from '../../common/CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
+import { menuNavigate } from '../../../routes/menuNavigate';
+
 
 export const NavBar = () => {
     return (
@@ -14,25 +16,11 @@ export const NavBar = () => {
         </div>
         
         <div>
-            <Link to="/">
-                <Button variant="contained" size="small" style={{margin: "3px"}} >Todas</Button>
-            </Link>
-            
-            <Link to="/category/América">
-                <Button variant="contained" size="small" style={{margin: "3px"}}>América</Button>
-            </Link>
-            
-            <Link to="/category/Europa">
-                <Button variant="contained" size="small" style={{margin: "3px"}}>Europa</Button>
-            </Link>
-            
-            <Link to="/category/Asia" >
-                <Button variant="contained" size="small" style={{margin: "3px"}}>Asia</Button>
-            </Link>
-                
-            <Link to="/category/Oceanía">
-                <Button variant="contained" size="small" style={{margin: "3px"}}>Oceanía</Button>
-            </Link>
+            { menuNavigate.map(({id, path, title})=>(
+                <Link key={id} to={path}> 
+                    <Button variant="contained" size="small" style={{margin: "3px"}} >{title}</Button>
+                </Link>
+            )) }
         </div>
 
         <Link to="/carrito">
