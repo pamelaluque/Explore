@@ -1,12 +1,13 @@
 import { ItemCount } from "../../common/ItemCount/ItemCount";
 
-export const ItemDetail = ({ productSelected }) => {
+export const ItemDetail = ({ productSelected, addToCart }) => {
   const onAdd = (cantidad) => {
     let data = {
       ...productSelected,
       quantity: cantidad,
     };
-    console.log(data);
+    
+    addToCart(data);
   };
 
   return (
