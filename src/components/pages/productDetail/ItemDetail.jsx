@@ -1,12 +1,12 @@
 import { ItemCount } from "../../common/ItemCount/ItemCount";
 
-export const ItemDetail = ({ productSelected, addToCart }) => {
+export const ItemDetail = ({ productSelected, addToCart, cantidad }) => {
   const onAdd = (cantidad) => {
     let data = {
       ...productSelected,
       quantity: cantidad,
     };
-    
+
     addToCart(data);
   };
 
@@ -29,7 +29,7 @@ export const ItemDetail = ({ productSelected, addToCart }) => {
             {productSelected.stock > 0 ? (
               <ItemCount
                 stock={productSelected.stock}
-                initial={1}
+                initial={cantidad}
                 onAdd={onAdd}
               />
             ) : (

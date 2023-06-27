@@ -1,7 +1,7 @@
 import { Layout } from "./components/layout/Layout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { menuRoutes } from "./routes/menuRoutes";
-import { CartContextProvider } from "./context/CartContext/CartContext";
+import CartContextProvider from "./context/CartContext/CartContext";
 
 
 const App = () => {
