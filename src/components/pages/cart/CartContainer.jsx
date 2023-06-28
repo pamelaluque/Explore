@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../../context/CartContext/CartContext";
+import { Cart } from "./Cart";
+import Swal from "sweetalert2";
 
 export const CartContainer = () => {
   const { cart, clearCart, removeItemByID, getTotalAmount } =
@@ -7,24 +9,28 @@ export const CartContainer = () => {
 
   let total = getTotalAmount();
 
-  return (
-    <div className="contenido">
-      <button onClick={clearCart}>Limpiar carrito</button>
+  const limpiarCarrito = () => {
+    Swal.fire({
+      title: "¿Vaciamos el carrito?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "Si, vaciarlo.",
+      denyButtonText: "No, cancelar.",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        clearCart();
+        Swal.fire("Carrito vacío", "", "success");
+       }
+    });
+  }
 
-      {cart.map((product) => {
-        return (
-          <div key={product.id}>
-            <img src={product.img} alt="" style={{ width: "100px" }} />
-            <h2>{product.title}</h2>
-            <h2>${product.price}/por Noche</h2>
-            <h2>Cantidad de noches: {product.quantity}</h2>
-            <button onClick={() => removeItemByID(product.id)}>Eliminar</button>
-            {/* Sacar este total de este div para que salga como general */}
-            <h2>Total del carrito ${total}</h2>
-          </div>
-        );
-      })}
-      {/* <h1>Acá va la vista del carrito 🔜</h1> */}
-    </div>
+  return (
+    <Cart
+      total={total}
+      cart={cart}
+      limpiarCarrito={limpiarCarrito}
+      removeItemByID={removeItemByID}
+    >
+    </Cart>
   );
 };

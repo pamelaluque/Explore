@@ -21,8 +21,10 @@ const CartContextProvider = ({ children }) => {
         }
       })
       setCart(newArray);
+      localStorage.setItem ("cart", JSON.stringify(newArray))
   }else{
     setCart ([...cart, newProduct])
+    localStorage.setItem ("cart", JSON.stringify([...cart, newProduct]))
   }
 }
 
@@ -33,11 +35,13 @@ const CartContextProvider = ({ children }) => {
 
   const clearCart = () => {
     setCart ([])
+    localStorage.removeItem ("cart")
   }
 
   const removeItemByID = (id) => {
     let newArray = cart.filter ((product)=> product.id !== id)
     setCart (newArray)
+    localStorage.setItem ("cart", JSON.stringify(newArray))
   }
 
   const getTotalQuantityById = (id) => {
