@@ -1,5 +1,5 @@
 import { CartContainer } from "../components/pages/cart/CartContainer";
-import { Checkout } from "../components/pages/checkout/Checkout";
+import { CheckoutContainer } from "../components/pages/checkout/CheckoutContainer";
 import { ItemListContainer } from "../components/pages/itemListContainer/ItemListContainer";
 import { ItemDetailContainer } from "../components/pages/productDetail/ItemDetailContainer";
 
@@ -27,5 +27,5 @@ export const menuRoutes = [
 {
     id: "checkout",
     path: "/checkout",
-    Element: Checkout
+    Element: CheckoutContainer
 }]
