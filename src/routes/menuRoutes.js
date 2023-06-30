@@ -1,3 +1,4 @@
+import { FirebaseAuth } from "../components/pages/FirebaseAuth/FirebaseAuth";
 import { CartContainer } from "../components/pages/cart/CartContainer";
 import { CheckoutContainer } from "../components/pages/checkout/CheckoutContainer";
 import { ItemListContainer } from "../components/pages/itemListContainer/ItemListContainer";
@@ -28,4 +29,9 @@ export const menuRoutes = [
     id: "checkout",
     path: "/checkout",
     Element: CheckoutContainer
+},
+{
+    id: "firebase-auth",
+    path: "/firebase-auth",
+    Element: FirebaseAuth
 }]

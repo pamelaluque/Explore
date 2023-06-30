@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { ItemDetail } from "./ItemDetail";
-// import { products } from "../../../productosMocks";
 import "./ItemDetail.css";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../../context/CartContext/CartContext";
@@ -35,17 +34,17 @@ export const ItemDetailContainer = () => {
   };
 
   useEffect(() => {
-    let itemCollection = collection ( db, "products" )
-    let refDoc = doc (itemCollection, id)
+    let itemCollection = collection(db, "products");
+    let refDoc = doc(itemCollection, id);
 
     getDoc(refDoc)
-    .then((res) =>{
-      setProductSelected ({
-        ...res.data(),
-        id: res.id
+      .then((res) => {
+        setProductSelected({
+          ...res.data(),
+          id: res.id,
+        });
       })
-    })
-    .catch ((err) => console.log(err))
+      .catch((err) => console.log(err));
   }, [id]);
 
   console.log(productSelected);
