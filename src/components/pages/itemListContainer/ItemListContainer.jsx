@@ -4,8 +4,15 @@ import { useParams } from "react-router-dom";
 import { ItemList } from "./ItemList";
 import { db } from "../../../firebaseConfig";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import {ClipLoader} from "react-spinners";
 
-export const ItemListContainer = ({ greeting }) => {
+const spinner = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+};
+
+export const ItemListContainer = () => {
   const [items, setItems] = useState([]);
 
   const { categoryId } = useParams();
@@ -33,5 +40,15 @@ export const ItemListContainer = ({ greeting }) => {
       .catch((err) => console.log(err));
   }, [categoryId]);
 
-  return <ItemList items={items} greeting={greeting} />;
+  return (
+    <div>
+      {items.length > 0 ? (
+        <ItemList items={items} />
+      ) : (
+        <div className="contenido">
+          <ClipLoader color="#368DC1" cssOverride={spinner} speedMultiplier="0.8" />
+        </div>
+      )}
+    </div>
+  );
 };

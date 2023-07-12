@@ -51,7 +51,7 @@ export const Cart = ({ total, cart, limpiarCarrito, removeItemByID }) => {
           </div>
           <div className="divCartRight">
             <h2>Detalle del carrito</h2>
-            <h3>Total de destinos: </h3>
+            <h3>Total de destinos: {cart.length} </h3>
             <h3>Total ${total}</h3>
             {cart.length > 0 ? (
               <div className="btnCart">

@@ -3,12 +3,12 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCAbqHc-41Hij1HBl7c6gwQE_meRygMs84",
-  authDomain: "explore-fc7da.firebaseapp.com",
-  projectId: "explore-fc7da",
-  storageBucket: "explore-fc7da.appspot.com",
-  messagingSenderId: "295604836734",
-  appId: "1:295604836734:web:63b5196ebcf1d11d2c7b2f"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);

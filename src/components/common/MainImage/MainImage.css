@@ -2,7 +2,7 @@
     position: relative;
     height: calc(100vh - 70px);
     width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
+    background-color: white;
 }
 
 .MainImage img {

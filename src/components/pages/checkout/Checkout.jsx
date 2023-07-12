@@ -25,6 +25,15 @@ export const Checkout = ({ handleSubmit, handleChange, errors }) => {
             error= {errors.email ? true : false }
           />
           <TextField
+            label="Confirmar correo electrónico"
+            name="emailConfirm"
+            size="small"
+            variant="standard"
+            onChange={handleChange}
+            helperText= {errors.emailConfirm}
+            error= {errors.emailConfirm ? true : false }
+          />
+          <TextField
             label="Teléfono"
             name="phone"
             size="small"

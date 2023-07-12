@@ -19,6 +19,7 @@ export const CheckoutContainer = () => {
     initialValues: {
       name: "",
       email: "",
+      emailConfirm: "",
       phone: "",
     },
     onSubmit: (data) => {
@@ -46,6 +47,9 @@ export const CheckoutContainer = () => {
         .min(3, "Debe ingresar al menos 3 letras")
         .required("Campo requerido"),
       email: Yup.string()
+        .email("El email ingresado no es válido")
+        .required("Campo requerido"),
+      emailConfirm: Yup.string()
         .email("El email ingresado no es válido")
         .required("Campo requerido"),
       phone: Yup.string()

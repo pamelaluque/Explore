@@ -1,12 +1,12 @@
 import { CardProduct } from "../../common/CardProduct/CardProduct";
 import { MainImage } from "../../common/MainImage/MainImage";
 
-export const ItemList = ( { items, greeting }) => {
+export const ItemList = ( { items }) => {
   return (
     <div className="contenido">
       <div className="saludo">
         <MainImage />
-        <h1> {greeting} </h1>
+        <h1>ENJOY THE ROUTE</h1>
       </div>
       <div className="zoneCatalogo">
         <h2> LOS MEJORES DESTINOS! </h2>

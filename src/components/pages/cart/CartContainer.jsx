@@ -8,7 +8,7 @@ export const CartContainer = () => {
     useContext(CartContext);
 
   let total = getTotalAmount();
-
+  
   const limpiarCarrito = () => {
     Swal.fire({
       title: "¿Vaciamos el carrito?",

@@ -6,6 +6,13 @@ import { CartContext } from "../../../context/CartContext/CartContext";
 import Swal from "sweetalert2";
 import { collection, getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
+import { ClipLoader } from "react-spinners";
+
+const spinner = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+};
 
 export const ItemDetailContainer = () => {
   const [productSelected, setProductSelected] = useState({});
@@ -15,7 +22,6 @@ export const ItemDetailContainer = () => {
   const { id } = useParams();
 
   const cantidad = getTotalQuantityById(id);
-  console.log("la cantidad es: ", cantidad);
 
   const onAdd = (cantidad) => {
     let data = {
@@ -47,14 +53,16 @@ export const ItemDetailContainer = () => {
       .catch((err) => console.log(err));
   }, [id]);
 
-  console.log(productSelected);
-
-  return (
+  return productSelected.id ? (
     <ItemDetail
       productSelected={productSelected}
       cantidad={cantidad}
       addToCart={addToCart}
       onAdd={onAdd}
     />
+  ) : (
+    <div className="contenido">
+      <ClipLoader color="#368DC1" cssOverride={spinner} speedMultiplier="0.8" />
+    </div>
   );
 };
