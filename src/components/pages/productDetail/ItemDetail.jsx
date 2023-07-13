@@ -20,13 +20,13 @@ export const ItemDetail = ({ productSelected, onAdd, cantidad }) => {
           <br />
 
           <div className="counter">
-            {productSelected.quantity && <span>Cantidad de días</span>}
+            <span>Cantidad de noches</span>
             {productSelected.stock > 0 ? (
               <ItemCount
                 stock={productSelected.stock}
                 initial={cantidad}
                 onAdd={onAdd}
-              />
+                />
             ) : (
               <h3>Sin Stock 😥</h3>
             )}
